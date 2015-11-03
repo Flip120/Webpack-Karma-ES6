@@ -1,14 +1,27 @@
-// require("./style.css")
-// document.write(require('./content.js'));
-import Point from './Point.js';
+require("./style.css")
+
+import Marionette from 'backbone.marionette';
+import $ from 'jquery';
 import Circle from './Figures/Circle.js';
 import UserModel from './User/Model.js';
+import MyApp from './App/App.js';
+import Router from './Router/Router.js';
+import routesController from './Router/RoutesController.js';
+import AppLayout from './App/View/Layout.js';
 
-console.log("UserModel", new UserModel({ username : 'Jonh McEnrou' }));
+let app = new MyApp();
 
-var body = document.querySelector('body');
+app.on("start", function(options){
+  if (Backbone.history){
+    Backbone.history.start();
+    var app = new AppLayout();
+    $('body').append(app.render().$el);
+    Marionette.app = app;
+  }
+});
 
-body.textContent = 'Good point: ' + new Point(1, 23);
+let router = new Router({
+  controller : routesController
+});
 
-var circle = new Circle(12);
-body.textContent += '<br/> Circle Area: ' + circle.getArea();
+app.start();
