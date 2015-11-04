@@ -1,9 +1,10 @@
 import Marionette from 'backbone.marionette';
 
-class UserCollectionView extends Marionette.ItemView {
-  initialize(){
-    console.log(this.model);
+let UserCollectionView = Marionette.ItemView.extend({
+
+  template(model) {
+    return '<p>Hola k ase? soy ' + model.username + '</p>';
   }
-}
+});
 
 export default UserCollectionView;

@@ -1,10 +1,14 @@
+import Marionette from 'backbone.marionette';
+import Backbone from 'backbone';
 import UserCollectionView from '../User/UserCollectionView';
 
 let routesController = {
   home : () => {
-    new UserCollectionView({
-      collection : [{ username : 'Jonh' }]
-    })
+    let userView = new UserCollectionView({
+      collection : new Backbone.Collection([{ username : 'Jonh' }, { username : 'Jonh2' }])
+    });
+    userView.render();
+    Marionette.app.mainLayout.showChildView('content', userView);
   }
 };
 

@@ -13,10 +13,11 @@ let app = new MyApp();
 
 app.on("start", function(options){
   if (Backbone.history){
-    Backbone.history.start();
-    var app = new AppLayout();
-    $('body').append(app.render().$el);
+    let appLayout = new AppLayout();
+    $('body').append(appLayout.render().$el);
+    app.mainLayout = appLayout;
     Marionette.app = app;
+    Backbone.history.start();
   }
 });
 
