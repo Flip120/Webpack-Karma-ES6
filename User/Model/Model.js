@@ -1,10 +1,8 @@
 import Backbone from 'backbone'
 
-class UserModel extends Backbone.Model {
-  defaults() {
-    return {
+let UserModel = Backbone.Model.extend({
+  defaults : {
       email : "no@email.com"
-    }
   }
-}
+});
 export default UserModel;

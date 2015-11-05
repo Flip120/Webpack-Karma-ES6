@@ -10,9 +10,7 @@ let AppLayout = Marionette.LayoutView.extend({
     content : '#content'
   },
 
-  template() {
-      return '<div id="menu"></div><div id="content"></div>';
-  }
+  template : require('../Template/Layout.hbs')
 });
 
 export default AppLayout;

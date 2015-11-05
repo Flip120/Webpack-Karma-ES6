@@ -2,8 +2,6 @@ require("./style.css")
 
 import Marionette from 'backbone.marionette';
 import $ from 'jquery';
-import Circle from './Figures/Circle.js';
-import UserModel from './User/Model.js';
 import MyApp from './App/App.js';
 import Router from './Router/Router.js';
 import routesController from './Router/RoutesController.js';
@@ -24,5 +22,10 @@ app.on("start", function(options){
 let router = new Router({
   controller : routesController
 });
+
+Backbone.Marionette.Renderer.render = function(template, data){
+  //var template = Handlebars.compile(teamplate);
+  return template(data);
+};
 
 app.start();

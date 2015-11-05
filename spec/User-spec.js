@@ -1,4 +1,4 @@
-import UserModel from '../User/Model.js';
+import UserModel from '../User/Model/Model.js';
 
 describe('UserModel', () => {
   it('A instance must have no@email by default', () => {
