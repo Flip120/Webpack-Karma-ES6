@@ -1,4 +1,5 @@
-require("./style.css")
+//require("./style.css")
+require("./style.scss");
 
 import Marionette from 'backbone.marionette';
 import $ from 'jquery';

@@ -5,6 +5,7 @@ import UserModel from '../User/Model/Model.js';
 
 let routesController = {
   home : () => {
+
     let userView = new UserCollectionView({
       collection : new (Backbone.Collection.extend({
         model : UserModel
@@ -12,6 +13,7 @@ let routesController = {
     });
     userView.render();
     Marionette.app.mainLayout.showChildView('content', userView);
+    
   }
 };
 
